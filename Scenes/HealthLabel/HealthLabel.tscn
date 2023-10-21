@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba1bkb41v7lsw"]
+
+[ext_resource type="Script" path="res://Scenes/HealthLabel/Scripts/HealthLabel.cs" id="1_45eyi"]
+
+[node name="HealthLabel" type="Label"]
+script = ExtResource("1_45eyi")

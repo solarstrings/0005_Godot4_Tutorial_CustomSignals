@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0cka3pfjjme0"]
+
+[ext_resource type="Script" path="res://Scenes/Trap/Scripts/Trap.cs" id="1_2i75i"]
+[ext_resource type="Texture2D" uid="uid://cn0sxidfd4ixp" path="res://Scenes/Trap/Gfx/Trap.png" id="1_xma3j"]
+[ext_resource type="Texture2D" uid="uid://booxt1npbhwis" path="res://Scenes/Trap/Gfx/TrapSprung.png" id="2_3t8sp"]
+[ext_resource type="AudioStream" uid="uid://sk8p65cewss6" path="res://Scenes/Trap/Sfx/SpikesUp.wav" id="4_6h0ak"]
+[ext_resource type="AudioStream" uid="uid://bbdhemgd4uhf0" path="res://Scenes/Trap/Sfx/SpikesDown.wav" id="5_68vej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl7y1"]
+
+[node name="Trap" type="Node2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_2i75i")
+
+[node name="TrapSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_xma3j")
+
+[node name="TrapSprung" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_3t8sp")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yl7y1")
+
+[node name="SpikesUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6h0ak")
+
+[node name="SpikesDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_68vej")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnArea2DBodyEntered"]
+[connection signal="body_exited" from="Area2D" to="." method="OnArea2DBodyExited"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://1j2fb7hx8d4h"]
+
+[ext_resource type="PackedScene" uid="uid://6ldu18t7gue4" path="res://Scenes/Player/Player.tscn" id="1_02mdn"]
+[ext_resource type="PackedScene" uid="uid://d0cka3pfjjme0" path="res://Scenes/Trap/Trap.tscn" id="2_8lj2o"]
+[ext_resource type="PackedScene" uid="uid://ba1bkb41v7lsw" path="res://Scenes/HealthLabel/HealthLabel.tscn" id="3_7nuhm"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Trap" parent="." instance=ExtResource("2_8lj2o")]
+position = Vector2(561, 323)
+
+[node name="Player" parent="." instance=ExtResource("1_02mdn")]
+position = Vector2(446, 315)
+
+[node name="HealthLabel" parent="." instance=ExtResource("3_7nuhm")]
+text = "Health Info goes here"
+
+[connection signal="UpdateHealth" from="Player" to="HealthLabel" method="OnPlayerUpdateHealth"]
