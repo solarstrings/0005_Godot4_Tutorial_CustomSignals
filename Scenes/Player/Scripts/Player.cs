@@ -4,7 +4,7 @@ using System;
 public partial class Player : CharacterBody2D
 {
     [Signal]
-    public delegate void UpdateHealthEventHandler(int health, Vector2 position);	
+    public delegate void UpdateHealthEventHandler(int health, Vector2 position);    
     [Export]
     public float MaxSpeed = 350;                // The max movement speed for the player
     [Export]
@@ -22,7 +22,7 @@ public partial class Player : CharacterBody2D
 	private void HandleDamagePlayer(int damageAmount)	
 	{
 		_health -= damageAmount;
-        EmitSignal(SignalName.UpdateHealth, _health, this.Position);    // Emit the "UpdateHeath" signal, and pass in the current player health and position
+        EmitSignal(SignalName.UpdateHealth, _health, this.Position);    // Emit the "UpdateHeath" signal, and pass in the current player health and position        
 	}
     public override void _PhysicsProcess(double delta)
     {

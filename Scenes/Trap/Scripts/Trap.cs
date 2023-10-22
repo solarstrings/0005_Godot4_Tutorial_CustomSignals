@@ -22,7 +22,7 @@ public partial class Trap : Node2D
 	private void OnArea2DBodyEntered(Player body)
 	{
    		if (body == null) { return; }                                               	// If the body is null, return out of the method		
-		_customSignals.EmitCustomSignal(nameof(CustomSignals.DamagePlayer),TrapDamage);	// Emit the DamagePlayer signal, and pass in the trap damage as damage amount
+        _customSignals.EmitSignal(nameof(CustomSignals.DamagePlayer), TrapDamage);      // Emit the DamagePlayer signal        
         _trapSprung.Visible = true;                                                 	// Set the trap sprung sprite to visible
         _spikesUp.Play();                                                           	// Play the spikes up sound effect		
 	}
